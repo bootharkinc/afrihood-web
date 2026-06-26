@@ -10,9 +10,9 @@
 }
 .sectionAlt { background: var(--g2); border-top: 1px solid var(--bd); border-bottom: 1px solid var(--bd); }
 .sectionRed { background: #0e0101; border-top-color: rgba(196,9,9,0.14); border-bottom-color: rgba(196,9,9,0.14); }
-.sectionRed .teamCard { background: #160102; border-color: rgba(196,9,9,0.16); }
-.sectionRed .teamCard:hover { border-color: rgba(196,9,9,0.38); }
-.sectionRed .stepIcon { background: rgba(196,9,9,0.09); border-color: rgba(196,9,9,0.2); }
+.sectionRed .philosophyOverlay { background: rgba(14,1,1,0.92); }
+.sectionRed .philosophyCard { background: #160102; border-color: rgba(196,9,9,0.16); }
+.sectionRed .impactCard { background: #160102; border-color: rgba(196,9,9,0.16); }
 
 /* ── Typography helpers ───────────────────────────────────────────── */
 .label {
@@ -216,7 +216,7 @@
 .aboutYearSub { font-size: 13px; color: rgba(237,233,224,0.7); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 6px; display: block; }
 .aboutContent {
   display: flex; flex-direction: column; justify-content: center;
-  padding: 80px 64px; background: #0e0101;
+  padding: 80px 64px; background: var(--g2);
 }
 .aboutTitle { font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 800; line-height: 1.2; color: var(--gw); margin-bottom: 20px; }
 .creed {
@@ -225,7 +225,7 @@
 }
 .aboutBody { font-size: 15px; line-height: 1.8; color: rgba(237,233,224,0.72); margin-bottom: 32px; }
 .pillarsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }
-.pillar { background: #160102; border: 1px solid rgba(196,9,9,0.16); border-radius: 12px; padding: 16px; }
+.pillar { background: var(--bd2); border: 1px solid var(--bd); border-radius: 12px; padding: 16px; }
 .pillarIcon { display: flex; margin-bottom: 8px; color: var(--gld); }
 .pillarTitle { font-size: 13px; font-weight: 700; color: var(--gw); margin-bottom: 4px; }
 .pillarDesc { font-size: 12px; color: var(--mu); line-height: 1.5; }
@@ -452,17 +452,17 @@
   position: relative; display: flex; flex-direction: column; justify-content: flex-end;
   padding: 52px; min-height: 440px;
 }
-.returnsQuoteSide::before { content: ''; position: absolute; inset: 0; background: rgba(1,15,7,0.72); }
+.returnsQuoteSide::before { content: ''; position: absolute; inset: 0; background: rgba(14,1,1,0.72); }
 .returnsQuote {
   position: relative; z-index: 1; font-size: clamp(1.1rem, 2vw, 1.5rem);
   font-weight: 600; color: var(--gw); line-height: 1.55; max-width: 460px; font-style: italic;
 }
 .returnsAttrib { position: relative; z-index: 1; font-size: 13px; color: var(--gld); font-weight: 600; margin-top: 20px; }
-.returnsDataSide { display: flex; flex-direction: column; justify-content: center; padding: 64px 56px; background: var(--g2); }
+.returnsDataSide { display: flex; flex-direction: column; justify-content: center; padding: 64px 56px; background: #0e0101; }
 .returnsTitle { font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 800; color: var(--gw); line-height: 1.2; margin-bottom: 32px; }
 .scenariosWrap { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
 .scenarioRow {
-  background: var(--bd2); border: 1px solid var(--bd); border-radius: 12px;
+  background: #160102; border: 1px solid rgba(196,9,9,0.16); border-radius: 12px;
   padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;
 }
 .scenarioPlan { font-size: 13px; font-weight: 600; color: var(--gw); margin-bottom: 4px; }

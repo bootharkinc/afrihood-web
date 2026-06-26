@@ -377,7 +377,7 @@ function PhilosophySection() {
     [<Zap size={28} />, 'Industry 4.0', 'Automation, AI, IoT, and smart building systems integrated from the ground up — making every Afrihood community future-ready for the next generation of urban life.'],
   ];
   return (
-    <section className={s.philosophySection} id="philosophy">
+    <section className={`${s.philosophySection} ${s.sectionRed}`} id="philosophy">
       <div className={s.philosophyOverlay} />
       <div className={s.philosophyContent}>
         <Reveal>
@@ -518,7 +518,7 @@ function TeamSection() {
     },
   ];
   return (
-    <section className={`${s.section} ${s.sectionAlt} ${s.sectionRed}`} id="team">
+    <section className={`${s.section} ${s.sectionAlt}`} id="team">
       <Reveal>
         <Label>Leadership</Label>
         <Headline>The Team Building<br/>Tomorrow&apos;s Africa Today</Headline>
@@ -712,7 +712,7 @@ function HowToAcquireSection() {
     { num: '04', ico: <FileText size={22} />, title: 'Own & Earn', desc: "Receive your Certificate of Occupancy (C of O) and title deed. Move in, lease it out, or enrol in the AfriShare programme to earn ongoing rental income while we manage the property." },
   ];
   return (
-    <section className={`${s.section} ${s.sectionAlt} ${s.sectionRed}`} id="how">
+    <section className={`${s.section} ${s.sectionAlt}`} id="how">
       <Reveal>
         <Label>Getting Started</Label>
         <Headline>From First Enquiry<br/>to Full Ownership</Headline>
@@ -857,7 +857,7 @@ function ReturnsSection() {
 // ── Community Impact / Testimonials ───────────────────────────────────────────
 function ImpactSection() {
   return (
-    <section className={`${s.section}`} id="impact">
+    <section className={`${s.section} ${s.sectionRed}`} id="impact">
       <Reveal>
         <Label>The Vision in Action</Label>
         <Headline>What Formal Housing<br/>Does to a Community</Headline>
