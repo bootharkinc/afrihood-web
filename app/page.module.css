@@ -216,7 +216,7 @@
 .aboutYearSub { font-size: 13px; color: rgba(237,233,224,0.7); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 6px; display: block; }
 .aboutContent {
   display: flex; flex-direction: column; justify-content: center;
-  padding: 80px 64px; background: var(--g2);
+  padding: 80px 64px; background: #0e0101;
 }
 .aboutTitle { font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 800; line-height: 1.2; color: var(--gw); margin-bottom: 20px; }
 .creed {
@@ -225,7 +225,7 @@
 }
 .aboutBody { font-size: 15px; line-height: 1.8; color: rgba(237,233,224,0.72); margin-bottom: 32px; }
 .pillarsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }
-.pillar { background: var(--bd2); border: 1px solid var(--bd); border-radius: 12px; padding: 16px; }
+.pillar { background: #160102; border: 1px solid rgba(196,9,9,0.16); border-radius: 12px; padding: 16px; }
 .pillarIcon { display: flex; margin-bottom: 8px; color: var(--gld); }
 .pillarTitle { font-size: 13px; font-weight: 700; color: var(--gw); margin-bottom: 4px; }
 .pillarDesc { font-size: 12px; color: var(--mu); line-height: 1.5; }
