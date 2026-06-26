@@ -1,0 +1,35 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --g1: #010f07;
+  --g2: #031a0d;
+  --g3: #052614;
+  --gld: #c9a84c;
+  --gld2: rgba(201,168,76,0.12);
+  --gld3: rgba(201,168,76,0.22);
+  --gw: #ffffff;
+  --cw: #ede9e0;
+  --mu: #8a9485;
+  --bd: rgba(255,255,255,0.08);
+  --bd2: rgba(255,255,255,0.04);
+  --text: #ede9e0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--g1);
+  color: var(--cw);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
