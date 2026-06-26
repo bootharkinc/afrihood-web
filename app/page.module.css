@@ -9,6 +9,7 @@
   background: var(--g1);
 }
 .sectionAlt { background: var(--g2); border-top: 1px solid var(--bd); border-bottom: 1px solid var(--bd); }
+.sectionRed { background: #160102; border-top-color: rgba(196,9,9,0.22); border-bottom-color: rgba(196,9,9,0.22); }
 
 /* ── Typography helpers ───────────────────────────────────────────── */
 .label {
@@ -229,8 +230,8 @@
 /* ── Numbers ──────────────────────────────────────────────────────── */
 .numbersSection {
   display: flex; flex-direction: column; align-items: center; padding: 110px clamp(40px, 6vw, 100px);
-  background: #160102;
-  border-top: 1px solid rgba(196,9,9,0.2); border-bottom: 1px solid rgba(196,9,9,0.2);
+  background: linear-gradient(135deg,#011a0e 0%,#031f12 50%,#011a0e 100%);
+  border-top: 1px solid var(--bd); border-bottom: 1px solid var(--bd);
 }
 .numbersGrid {
   display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
@@ -304,8 +305,8 @@
 /* ── CTA Banner ───────────────────────────────────────────────────── */
 .ctaBanner {
   display: flex; flex-direction: column; align-items: center; padding: 120px clamp(40px, 6vw, 100px);
-  background: #0f0102;
-  text-align: center; border-top: 1px solid rgba(196,9,9,0.2);
+  background: linear-gradient(160deg,#040c1e 0%,#020412 50%,#031a0d 100%);
+  text-align: center; border-top: 1px solid var(--bd);
 }
 .ctaTitle { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.1; color: var(--gw); margin-bottom: 20px; letter-spacing: -0.02em; }
 .ctaSub { font-size: 16px; line-height: 1.75; color: var(--mu); max-width: 560px; margin-bottom: 48px; }

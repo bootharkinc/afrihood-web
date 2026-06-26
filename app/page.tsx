@@ -2,6 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 import s from './page.module.css';
+import {
+  TrendingUp, Building2, Home, UserCheck, Search, ShieldCheck, FileText,
+  Globe, Users, Award, Leaf, Zap, Banknote, BarChart2, Heart, Globe2,
+  Briefcase, MapPin, Phone, Mail, Building,
+} from 'lucide-react';
 
 // ── Scroll-reveal hook ────────────────────────────────────────────────────────
 function useReveal() {
@@ -34,7 +39,7 @@ function Label({ children }: { children: React.ReactNode }) {
   return <div className={s.label}>{children}</div>;
 }
 function Headline({ children }: { children: React.ReactNode }) {
-  return <h2 className={s.headline} dangerouslySetInnerHTML={{ __html: children as string }} />;
+  return <h2 className={s.headline}>{children}</h2>;
 }
 function Sub({ children, narrow }: { children: React.ReactNode; narrow?: boolean }) {
   return <p className={`${s.sub} ${narrow ? s.subNarrow : ''}`}>{children}</p>;
@@ -52,7 +57,10 @@ function Nav() {
   return (
     <header className={`${s.nav} ${scrolled ? s.navScrolled : ''}`}>
       <div className={s.navInner}>
-        <a href="/" className={s.logo}>AFRIHOOD</a>
+        <a href="/" className={s.logo}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Afrihood" className={s.logoImg} />
+        </a>
         <nav className={`${s.navLinks} ${open ? s.navLinksOpen : ''}`}>
           <a href="#projects" onClick={() => setOpen(false)}>Projects</a>
           <a href="#invest" onClick={() => setOpen(false)}>Invest</a>
@@ -119,9 +127,11 @@ function PartnersBar() {
     <div className={s.trustBar}>
       <span className={s.trustLabel}>Development Partners &amp; Institutional Backers</span>
       <div className={s.trustLogos}>
-        {['Shelter Afrique', 'Infracredit', 'HSF'].map((n) => (
-          <span key={n} className={s.trustPartner}>{n}</span>
-        ))}
+        {/* eslint-disable @next/next/no-img-element */}
+        <img src="/partner-shelter-afrique-white.png" alt="Shelter Afrique" className={s.trustLogoImg} />
+        <img src="/partner-infracredit-white.svg" alt="InfraCredit" className={s.trustLogoImg} />
+        <img src="/partner-hsf-white.svg" alt="Housing Solutions Fund" className={s.trustLogoImg} />
+        {/* eslint-enable @next/next/no-img-element */}
         <span className={s.trustDivider} />
         {['ISO 9001', 'ISO 45001', 'ISO 14001'].map((n) => (
           <span key={n} className={s.trustBadge}>{n}</span>
@@ -135,7 +145,7 @@ function PartnersBar() {
 function InvestSection() {
   const products = [
     {
-      icon: '📈',
+      icon: <TrendingUp size={24} />,
       tag: 'Fixed Income Bond',
       name: 'AfriBond',
       desc: 'A secured investment bond offering returns up to 40% ROI. Your capital finances formal residential development with a registered charge on completed Afrihood assets.',
@@ -144,7 +154,7 @@ function InvestSection() {
       featured: false,
     },
     {
-      icon: '🏘️',
+      icon: <Building2 size={24} />,
       tag: 'Fractional Ownership',
       name: 'AfriShare',
       desc: 'Own a fraction of a completed Afrihood court. Earn lifetime rental income proportional to your share — without managing the property yourself.',
@@ -153,7 +163,7 @@ function InvestSection() {
       featured: true,
     },
     {
-      icon: '🏗️',
+      icon: <Home size={24} />,
       tag: 'Direct Purchase',
       name: 'Properties',
       desc: 'Purchase outright ownership of an Afrihood residential unit. Formally titled, insured, and government-approved — with flexible payment plans available.',
@@ -202,13 +212,13 @@ function InvestSection() {
 function ProjectsSection() {
   const projects = [
     {
-      img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80',
+      img: '/aize-court.jpg',
       name: 'Aize Court',
       location: 'Palmgrove, Lagos',
       type: 'Residential Apartments',
       beds: '3',
-      units: '12 Units',
-      price: '₦5,529,412',
+      units: '32',
+      price: '₦30,000,000',
       status: 'Development Phase',
       statusColor: '#c9a84c',
       badge: 'Maiden Project',
@@ -216,23 +226,23 @@ function ProjectsSection() {
     {
       img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
       name: 'Uresa Court',
-      location: 'Ilupeju, Lagos',
+      location: 'Yaba, Lagos',
       type: 'Maisonette with BQ',
       beds: '3',
-      units: '8 Units',
-      price: '₦11,818,182',
+      units: '38',
+      price: '₦50,000,000',
       status: 'Development Phase',
       statusColor: '#c9a84c',
       badge: 'Maiden Project',
     },
     {
       img: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80',
-      name: 'Millennium Court',
-      location: 'Surulere, Lagos',
-      type: 'Terrace Duplex with BQ',
-      beds: '3',
-      units: '6 Units',
-      price: '₦18,400,000',
+      name: 'Zaphire Court',
+      location: 'Mopo, Lekki Coastal Road, Lagos',
+      type: 'Terrace Duplex',
+      beds: '4',
+      units: '20',
+      price: '₦20,000,000',
       status: 'Development Phase',
       statusColor: '#c9a84c',
       badge: 'Flagship',
@@ -308,10 +318,10 @@ function AboutSection() {
           </p>
           <div className={s.pillarsGrid}>
             {[
-              ['🌍', 'Afrocentrism', 'Indigenous materials, African expertise, and African-led design.'],
-              ['🤝', 'Community', 'Fostering a deep sense of belonging among all stakeholders.'],
-              ['🏅', 'World-Class', 'Superior designs, premium amenities, world-standard fixtures.'],
-              ['♻️', 'Sustainability', 'Recycling, renewable energy, and eco-friendly construction.'],
+              [<Globe size={20} />, 'Afrocentrism', 'Indigenous materials, African expertise, and African-led design.'],
+              [<Users size={20} />, 'Community', 'Fostering a deep sense of belonging among all stakeholders.'],
+              [<Award size={20} />, 'World-Class', 'Superior designs, premium amenities, world-standard fixtures.'],
+              [<Leaf size={20} />, 'Sustainability', 'Recycling, renewable energy, and eco-friendly construction.'],
             ].map(([ico, t, d]) => (
               <div key={t as string} className={s.pillar}>
                 <div className={s.pillarIcon}>{ico}</div>
@@ -330,12 +340,12 @@ function AboutSection() {
 // ── Key Numbers ───────────────────────────────────────────────────────────────
 function NumbersSection() {
   const nums = [
-    ['3', 'Active Development Projects', 'Aize Court · Uresa Court · Millennium Court — all in Lagos'],
+    ['3', 'Active Development Projects', 'Aize Court · Uresa Court · Zaphire Court — all in Lagos'],
     ['3', 'Institutional Partners', 'Shelter Afrique, Infracredit, and HSF backing our maiden launch'],
     ['ISO ×3', 'Quality Certifications', 'ISO 9001, ISO 45001, and ISO 14001 compliance across operations'],
     ['100%', 'Formally Titled', 'Every unit government-approved, insured, and title-documented'],
     ['Lagos', 'Maiden City', 'First community in a planned pan-African expansion across the continent'],
-    ['₦5.5M+', 'Entry Price Point', 'Formal housing made accessible — starting well below market luxury'],
+    ['₦20M+', 'Entry Price Point', 'Formal housing made accessible — starting from ₦20,000,000'],
   ];
   return (
     <section className={s.numbersSection}>
@@ -359,12 +369,12 @@ function NumbersSection() {
 // ── Development Philosophy ────────────────────────────────────────────────────
 function PhilosophySection() {
   const pillars = [
-    ['🌿', 'Sustainability', 'Every Afrihood development is built with recycling infrastructure, renewable energy sources, and eco-friendly construction materials — minimising environmental impact while maximising resident wellbeing.'],
-    ['🏙️', 'Afrocentrism', 'No imported blueprints. Every structure is conceptualised using indigenous materials, African expertise, and design sensibilities rooted in the African context, climate, and culture.'],
-    ['🤝', 'Community', 'We foster a deep sense of belonging among all stakeholders — residents, investors, and the surrounding neighbourhood. Every court is a community, not just a building.'],
-    ['🏅', 'World-Class', 'Superior designs, premium amenities, and world-standard fixtures — because Africans deserve the same quality of built environment that exists in other parts of the world.'],
-    ['🏘️', 'Integrated Living', 'Live, work, and play environments within each development. Retail, green space, and community infrastructure are built in — not bolted on as afterthoughts.'],
-    ['⚡', 'Industry 4.0', 'Automation, AI, IoT, and smart building systems integrated from the ground up — making every Afrihood community future-ready for the next generation of urban life.'],
+    [<Leaf size={28} />, 'Sustainability', 'Every Afrihood development is built with recycling infrastructure, renewable energy sources, and eco-friendly construction materials — minimising environmental impact while maximising resident wellbeing.'],
+    [<Globe size={28} />, 'Afrocentrism', 'No imported blueprints. Every structure is conceptualised using indigenous materials, African expertise, and design sensibilities rooted in the African context, climate, and culture.'],
+    [<Users size={28} />, 'Community', 'We foster a deep sense of belonging among all stakeholders — residents, investors, and the surrounding neighbourhood. Every court is a community, not just a building.'],
+    [<Award size={28} />, 'World-Class', 'Superior designs, premium amenities, and world-standard fixtures — because Africans deserve the same quality of built environment that exists in other parts of the world.'],
+    [<Home size={28} />, 'Integrated Living', 'Live, work, and play environments within each development. Retail, green space, and community infrastructure are built in — not bolted on as afterthoughts.'],
+    [<Zap size={28} />, 'Industry 4.0', 'Automation, AI, IoT, and smart building systems integrated from the ground up — making every Afrihood community future-ready for the next generation of urban life.'],
   ];
   return (
     <section className={s.philosophySection} id="philosophy">
@@ -397,21 +407,21 @@ function PartnersSection() {
       role: 'Pan-African Housing Finance Institution',
       desc: 'Shelter Afrique is a pan-African real estate finance institution established by African governments and the African Development Bank. It is the continent\'s premier multilateral financier of affordable housing, providing long-term finance and technical assistance to housing developers across Africa. Their partnership with Afrihood connects our maiden projects to decades of continental housing expertise and institutional-grade structuring.',
       tags: ['AfDB-Backed', 'Multilateral Finance', '44 Member States'],
-      icon: '🌍',
+      logo: '/partner-shelter-afrique.png',
     },
     {
-      name: 'Infracredit',
+      name: 'InfraCredit',
       role: 'Infrastructure Credit Guarantee Company',
-      desc: 'InfraCredit is a Nigeria-based, AAA-rated infrastructure credit guarantee company backed by the Nigeria Sovereign Investment Authority and GuarantCo. It provides long-term local-currency credit guarantees for infrastructure bond issuances, enabling Nigerian developers to access patient, affordable capital. Infracredit\'s involvement gives Afrihood\'s AfriBond the institutional-grade backing that institutional investors require.',
+      desc: 'InfraCredit is a Nigeria-based, AAA-rated infrastructure credit guarantee company backed by the Nigeria Sovereign Investment Authority and GuarantCo. It provides long-term local-currency credit guarantees for infrastructure bond issuances, enabling Nigerian developers to access patient, affordable capital. InfraCredit\'s involvement gives Afrihood\'s AfriBond the institutional-grade backing that institutional investors require.',
       tags: ['AAA-Rated', 'NSIA-Backed', 'Bond Guarantee'],
-      icon: '🏦',
+      logo: '/partner-infracredit.svg',
     },
     {
-      name: 'HSF',
-      role: 'Housing & Shelter Finance Partner',
-      desc: 'HSF (Housing Shelter Fund) is dedicated to scaling formal housing delivery across African markets through capital mobilization, technical assistance, and strategic partnerships. Their focus on addressing Africa\'s 50-million-unit housing deficit aligns directly with Afrihood\'s mission, providing both financial instruments and policy-level engagement that strengthens the formal housing ecosystem Afrihood operates within.',
+      name: 'Housing Solutions Fund',
+      role: 'Housing Solutions Fund',
+      desc: 'Housing Solutions Fund (HSF) is dedicated to scaling formal housing delivery across African markets through capital mobilization, technical assistance, and strategic partnerships. Their focus on addressing Africa\'s 50-million-unit housing deficit aligns directly with Afrihood\'s mission, providing both financial instruments and policy-level engagement that strengthens the formal housing ecosystem Afrihood operates within.',
       tags: ['Housing Finance', 'Capital Mobilization', 'Technical Assistance'],
-      icon: '🏗️',
+      logo: '/partner-hsf.png',
     },
   ];
   return (
@@ -426,7 +436,10 @@ function PartnersSection() {
         <div className={s.partnersGrid}>
           {partners.map((p) => (
             <div key={p.name} className={s.partnerCard}>
-              <div className={s.partnerIconWrap}>{p.icon}</div>
+              <div className={s.partnerLogoWrap}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={p.logo} alt={p.name} className={s.partnerLogo} />
+              </div>
               <div className={s.partnerRole}>{p.role}</div>
               <h3 className={s.partnerName}>{p.name}</h3>
               <p className={s.partnerDesc}>{p.desc}</p>
@@ -444,12 +457,12 @@ function PartnersSection() {
 // ── Why Africa ────────────────────────────────────────────────────────────────
 function WhySection() {
   const reasons = [
-    ['📊', 'Capital Appreciation', "Africa's urban property values have consistently outpaced inflation in major cities — driven by acute undersupply against rapidly growing demand."],
-    ['🏦', 'Rental Yields', "African urban rental yields average 6–14% — significantly higher than European and North American equivalents, driven by the formal housing shortage."],
-    ['🌱', 'Structural Demand', "Africa will add 950 million urban residents by 2050. The cities don't fully exist yet. Formal housing is not a luxury asset class — it is critical infrastructure."],
-    ['🔒', 'Regulated & Insured', 'Every Afrihood unit is government-approved, formally titled, and covered by comprehensive property insurance. No off-plan risk without documentation.'],
-    ['🤲', 'Social Impact', 'Investing in Afrihood directly addresses Africa\'s 50-million-unit housing deficit — delivering measurable community uplift alongside financial return.'],
-    ['🌍', 'Pan-African Vision', 'Lagos is the starting point. Afrihood\'s model is designed to replicate across West, East, and Southern Africa — giving early investors continental exposure.'],
+    [<TrendingUp size={28} />, 'Capital Appreciation', "Africa's urban property values have consistently outpaced inflation in major cities — driven by acute undersupply against rapidly growing demand."],
+    [<Banknote size={28} />, 'Rental Yields', "African urban rental yields average 6–14% — significantly higher than European and North American equivalents, driven by the formal housing shortage."],
+    [<BarChart2 size={28} />, 'Structural Demand', "Africa will add 950 million urban residents by 2050. The cities don't fully exist yet. Formal housing is not a luxury asset class — it is critical infrastructure."],
+    [<ShieldCheck size={28} />, 'Regulated & Insured', 'Every Afrihood unit is government-approved, formally titled, and covered by comprehensive property insurance. No off-plan risk without documentation.'],
+    [<Heart size={28} />, 'Social Impact', 'Investing in Afrihood directly addresses Africa\'s 50-million-unit housing deficit — delivering measurable community uplift alongside financial return.'],
+    [<Globe2 size={28} />, 'Pan-African Vision', 'Lagos is the starting point. Afrihood\'s model is designed to replicate across West, East, and Southern Africa — giving early investors continental exposure.'],
   ];
   return (
     <section className={s.section}>
@@ -480,32 +493,32 @@ function WhySection() {
 function TeamSection() {
   const team = [
     {
-      img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&q=80',
+      img: '/team-olufemi.jpg',
       name: 'Olufemi Shield',
       title: 'Managing Partner',
       note: 'Driving Afrihood\'s pan-African vision and institutional strategy',
     },
     {
-      img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&q=80',
+      img: '/team-israel.png',
       name: 'Israel Adekoya',
       title: 'Client Account Manager',
       note: 'Investor relations, client acquisition, and account management',
     },
     {
-      img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&q=80',
+      img: '/team-olisa.jpg',
       name: 'Engr. Olisa Kanebi',
       title: 'Engineering & Construction Manager',
       note: 'ISO-certified construction oversight and engineering delivery',
     },
     {
-      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&q=80',
+      img: '/team-victoria.jpeg',
       name: 'Victoria Israel',
       title: 'Legal & Administrative Executive',
       note: 'Title documentation, regulatory compliance, and administration',
     },
   ];
   return (
-    <section className={`${s.section} ${s.sectionAlt}`} id="team">
+    <section className={`${s.section} ${s.sectionAlt} ${s.sectionRed}`} id="team">
       <Reveal>
         <Label>Leadership</Label>
         <Headline>The Team Building<br/>Tomorrow&apos;s Africa Today</Headline>
@@ -573,9 +586,9 @@ function ContactSection() {
           </p>
           <div className={s.contactDetails}>
             {[
-              ['📍', 'Head Office', '7th Floor, Mulliner Towers, 39 Alfred Rewane Road, Ikoyi — Lagos, Nigeria'],
-              ['📞', 'Phone', '+234 805 560 0000'],
-              ['✉️', 'Email', 'hello@afrihood.com'],
+              [<MapPin size={20} />, 'Head Office', '7th Floor, Mulliner Towers, 39 Alfred Rewane Road, Ikoyi — Lagos, Nigeria'],
+              [<Phone size={20} />, 'Phone', '+234 805 560 0000'],
+              [<Mail size={20} />, 'Email', 'hello@afrihood.com'],
             ].map(([ico, lbl, val]) => (
               <div key={lbl as string} className={s.contactItem}>
                 <span className={s.contactIcon}>{ico}</span>
@@ -616,9 +629,9 @@ function ContactSection() {
                 <label>I&apos;m interested in</label>
                 <select value={form.interest} onChange={e => setForm({ ...form, interest: e.target.value })}>
                   <option value="">Select an option</option>
-                  <option>Aize Court — from ₦5.5M</option>
-                  <option>Uresa Court — from ₦11.8M</option>
-                  <option>Millennium Court — from ₦18.4M</option>
+                  <option>Aize Court — from ₦30M</option>
+                  <option>Uresa Court — from ₦50M</option>
+                  <option>Zaphire Court — from ₦20M</option>
                   <option>AfriBond Investment</option>
                   <option>AfriShare (Fractional Ownership)</option>
                   <option>AfriBuild (Custom Construction)</option>
@@ -644,7 +657,8 @@ function Footer() {
     <footer className={s.footer}>
       <div className={s.footerMain}>
         <div className={s.footerBrand}>
-          <div className={s.logo} style={{ fontSize: '22px', marginBottom: '12px' }}>AFRIHOOD</div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="Afrihood" className={s.footerLogoImg} />
           <p className={s.footerTagline}>
             Raising African living standards,<br />one community at a time.
           </p>
@@ -668,7 +682,7 @@ function Footer() {
         </div>
         <div className={s.footerCol}>
           <div className={s.footerColTitle}>Projects</div>
-          {['Aize Court — Palmgrove', 'Uresa Court — Ilupeju', 'Millennium Court — Surulere'].map((l) => (
+          {['Aize Court — Palmgrove', 'Uresa Court — Yaba', 'Zaphire Court — Lekki'].map((l) => (
             <a key={l} href="#projects" className={s.footerLink}>{l}</a>
           ))}
         </div>
@@ -692,13 +706,13 @@ function Footer() {
 // ── How to Acquire ────────────────────────────────────────────────────────────
 function HowToAcquireSection() {
   const steps = [
-    { num: '01', ico: '🪪', title: 'Register & Enquire', desc: "Complete our property enquiry form with your details and investment interest. Our team verifies your request and assigns a dedicated client account manager within 24 hours." },
-    { num: '02', ico: '🔍', title: 'Select Your Property', desc: "Browse our available courts and units. Each listing includes full specifications, pricing, location details, and projected rental yields. Schedule an in-person or virtual site visit." },
-    { num: '03', ico: '💳', title: 'Secure Your Unit', desc: "Pay a commitment deposit to reserve your chosen unit. Funds are held in a secure escrow account pending full documentation. Flexible payment plans available over 12–48 months." },
-    { num: '04', ico: '📜', title: 'Own & Earn', desc: "Receive your Certificate of Occupancy (C of O) and title deed. Move in, lease it out, or enrol in the AfriShare programme to earn ongoing rental income while we manage the property." },
+    { num: '01', ico: <UserCheck size={22} />, title: 'Register & Enquire', desc: "Complete our property enquiry form with your details and investment interest. Our team verifies your request and assigns a dedicated client account manager within 24 hours." },
+    { num: '02', ico: <Search size={22} />, title: 'Select Your Property', desc: "Browse our available courts and units. Each listing includes full specifications, pricing, location details, and projected rental yields. Schedule an in-person or virtual site visit." },
+    { num: '03', ico: <ShieldCheck size={22} />, title: 'Secure Your Unit', desc: "Pay a commitment deposit to reserve your chosen unit. Funds are held in a secure escrow account pending full documentation. Flexible payment plans available over 12–48 months." },
+    { num: '04', ico: <FileText size={22} />, title: 'Own & Earn', desc: "Receive your Certificate of Occupancy (C of O) and title deed. Move in, lease it out, or enrol in the AfriShare programme to earn ongoing rental income while we manage the property." },
   ];
   return (
-    <section className={`${s.section} ${s.sectionAlt}`} id="how">
+    <section className={`${s.section} ${s.sectionAlt} ${s.sectionRed}`} id="how">
       <Reveal>
         <Label>Getting Started</Label>
         <Headline>From First Enquiry<br/>to Full Ownership</Headline>
@@ -729,7 +743,7 @@ function InfrastructureSection() {
     {
       img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80',
       cat: 'Community Infrastructure',
-      loc: 'Palmgrove & Ilupeju, Lagos',
+      loc: 'Palmgrove & Yaba, Lagos',
       title: 'Integrated Court Infrastructure — Phase 1',
       desc: 'Each Afrihood court is developed with full integrated infrastructure: private roads, perimeter fencing, CCTV security, solar-powered common lighting, waste management systems, and community green spaces. No unit is sold without its infrastructure complete.',
       tags: ['Solar Lighting', 'Waste Systems', 'Security'],
@@ -854,19 +868,19 @@ function ImpactSection() {
         <div className={s.impactGrid}>
           {[
             {
-              icon: '🏘️',
+              icon: <Building size={28} />,
               title: 'Neighbourhood Value Lift',
               quote: "When a planned, security-fenced court with 24/7 power and clean drainage replaces a derelict compound, the surrounding streets feel it within 12 months — in safety, in aesthetics, and in property values.",
               attr: 'Community development principle — Afrihood',
             },
             {
-              icon: '💼',
+              icon: <Briefcase size={28} />,
               title: 'Local Employment Creation',
               quote: 'Every Afrihood development creates direct construction jobs, and sustained employment through in-community security, maintenance, and management — with a preference for hiring from the host community first.',
               attr: 'Workforce commitment — Afrihood',
             },
             {
-              icon: '🌿',
+              icon: <Leaf size={28} />,
               title: 'Environmental Baseline',
               quote: "We don't build and leave. Every court includes functional green spaces, waste sorting infrastructure, and solar-supplemented power. Living standards must include the environment — not trade off against it.",
               attr: 'Sustainability pillar — Afrihood',
