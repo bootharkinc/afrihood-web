@@ -1,7 +1,15 @@
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
 
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
+  icons: { icon: '/favicon.png', apple: '/favicon.png' },
   title: 'Afrihood — Raising African Living Standards, One Community at a Time',
   description:
     'Afrihood is a pan-African real estate and infrastructure development company committed to building pristine, secure, functional, and beautiful communities across Africa. Maiden projects: Aize Court, Uresa Court, and Millennium Court — Lagos, Nigeria.',
@@ -22,15 +30,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={inter.className}>
       <body>{children}</body>
     </html>
   );
