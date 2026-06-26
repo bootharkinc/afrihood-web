@@ -377,7 +377,7 @@ function PhilosophySection() {
     [<Zap size={28} />, 'Industry 4.0', 'Automation, AI, IoT, and smart building systems integrated from the ground up — making every Afrihood community future-ready for the next generation of urban life.'],
   ];
   return (
-    <section className={`${s.philosophySection} ${s.sectionRed}`} id="philosophy">
+    <section className={s.philosophySection} id="philosophy">
       <div className={s.philosophyOverlay} />
       <div className={s.philosophyContent}>
         <Reveal>
@@ -857,7 +857,7 @@ function ReturnsSection() {
 // ── Community Impact / Testimonials ───────────────────────────────────────────
 function ImpactSection() {
   return (
-    <section className={`${s.section} ${s.sectionRed}`} id="impact">
+    <section className={`${s.section}`} id="impact">
       <Reveal>
         <Label>The Vision in Action</Label>
         <Headline>What Formal Housing<br/>Does to a Community</Headline>
