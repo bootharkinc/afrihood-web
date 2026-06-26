@@ -9,10 +9,10 @@
   background: var(--g1);
 }
 .sectionAlt { background: var(--g2); border-top: 1px solid var(--bd); border-bottom: 1px solid var(--bd); }
-.sectionRed { background: #160102; border-top-color: rgba(196,9,9,0.22); border-bottom-color: rgba(196,9,9,0.22); }
-.sectionRed .teamCard { background: #220204; border-color: rgba(196,9,9,0.22); }
-.sectionRed .teamCard:hover { border-color: rgba(196,9,9,0.55); }
-.sectionRed .stepIcon { background: rgba(196,9,9,0.14); border-color: rgba(196,9,9,0.3); }
+.sectionRed { background: #0e0101; border-top-color: rgba(196,9,9,0.14); border-bottom-color: rgba(196,9,9,0.14); }
+.sectionRed .teamCard { background: #160102; border-color: rgba(196,9,9,0.16); }
+.sectionRed .teamCard:hover { border-color: rgba(196,9,9,0.38); }
+.sectionRed .stepIcon { background: rgba(196,9,9,0.09); border-color: rgba(196,9,9,0.2); }
 
 /* ── Typography helpers ───────────────────────────────────────────── */
 .label {
