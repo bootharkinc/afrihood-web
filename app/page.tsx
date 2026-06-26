@@ -224,7 +224,7 @@ function ProjectsSection() {
       badge: 'Maiden Project',
     },
     {
-      img: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80',
+      img: '/Uresa.jpeg',
       name: 'Uresa Court',
       location: 'Yaba, Lagos',
       type: 'Maisonette with BQ',
